@@ -16,28 +16,28 @@ public class ProductController {
 
     private final ProductService productService;
 
-    // ✅ GET all products
+
     @GetMapping
     public ResponseEntity<List<Product>> getAll() {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
-    // ✅ Add new product (Admin only - role check inside JWT token)
+
     @PostMapping
     public ResponseEntity<Product> addProduct(@RequestBody Product product) {
         return ResponseEntity.ok(productService.addProduct(product));
     }
 
-    // ✅ Favorite a product
+
     @PostMapping("/{id}/favorite")
     public ResponseEntity<Favorite> markFavorite(
             @PathVariable Long id,
-            @RequestAttribute("userId") Long userId   // Extracted from JWT
+            @RequestAttribute("userId") Long userId
     ) {
         return ResponseEntity.ok(productService.markFavorite(userId, id));
     }
 
-    // ✅ Get favorites for logged-in user
+
     @GetMapping("/favorites")
     public ResponseEntity<List<Favorite>> favorites(
             @RequestAttribute("userId") Long userId

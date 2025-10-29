@@ -16,17 +16,17 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final FavoriteRepository favoriteRepository;
 
-    // ✅ Get all products
+
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    // ✅ Add new product (Admin only logic handled in controller)
+
     public Product addProduct(Product product) {
         return productRepository.save(product);
     }
 
-    // ✅ Mark product as favorite
+
     public Favorite markFavorite(Long userId, Long productId) {
         Favorite favorite = Favorite.builder()
                 .userId(userId)
@@ -35,7 +35,7 @@ public class ProductService {
         return favoriteRepository.save(favorite);
     }
 
-    // ✅ Get user's favorite products
+
     public List<Favorite> getFavorites(Long userId) {
         return favoriteRepository.findByUserId(userId);
     }

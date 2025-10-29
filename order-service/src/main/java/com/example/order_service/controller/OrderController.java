@@ -38,7 +38,7 @@ public class OrderController {
 //        return ResponseEntity.ok(cartService.addToCart(userId, productId, quantity));
 //    }
 
-    //  View cart
+
     @GetMapping("/cart")
     public ResponseEntity<List<CartItem>> getCart(
             //@RequestAttribute("userId") Long userId
@@ -47,7 +47,7 @@ public class OrderController {
         return ResponseEntity.ok(cartService.getCart(userId));
     }
 
-    //  Checkout
+
     @PostMapping("/checkout")
     public ResponseEntity<Order> checkout(
             //@RequestAttribute("userId") Long userId
