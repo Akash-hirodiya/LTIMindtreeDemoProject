@@ -40,4 +40,9 @@ public class ProductService {
         return favoriteRepository.findByUserId(userId);
     }
 
+    public Product getProductById(Long id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found with id = " + id));
+    }
+
 }

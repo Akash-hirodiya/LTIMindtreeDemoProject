@@ -44,4 +44,10 @@ public class ProductController {
     ) {
         return ResponseEntity.ok(productService.getFavorites(userId));
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getProductById(@PathVariable Long id) {
+        Product product = productService.getProductById(id);
+        return ResponseEntity.ok(product);
+    }
 }
