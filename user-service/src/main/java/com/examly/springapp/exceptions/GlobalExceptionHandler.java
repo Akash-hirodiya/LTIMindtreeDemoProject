@@ -15,9 +15,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleEmailAlreadyExistException(EmailAlreadyExistException ex){
         return new ResponseEntity<>(ex.getMessage(),HttpStatus.CONFLICT);
     }
-    @ExceptionHandler(MobileAlreadyExistException.class)
-    public ResponseEntity<String> handleMobileAlreadyExistException(MobileAlreadyExistException ex){
-        return new ResponseEntity<>(ex.getMessage(),HttpStatus.CONFLICT);
-    }
+
 
 }
